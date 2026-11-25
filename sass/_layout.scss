@@ -79,3 +79,53 @@ main {
     left: var(--gutter);
     top: 0.5rem;
 }
+
+.site-header-end {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-inline-start: auto;
+}
+
+.theme-toggle {
+    // Hidden until JS confirms it can work (see base.html).
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+}
+
+html.js .theme-toggle {
+    display: inline-flex;
+}
+
+.theme-toggle:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.theme-toggle svg {
+    width: 1.15rem;
+    height: 1.15rem;
+}
+
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon {
+    display: none;
+}
+
+// Show the icon for the theme you would switch to.
+:root[data-theme="dark"] .theme-toggle .icon-sun {
+    display: block;
+}
+
+:root[data-theme="light"] .theme-toggle .icon-moon {
+    display: block;
+}

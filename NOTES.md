@@ -8,7 +8,7 @@ Personal site for Sanjay: blog, projects, research. Last updated: 2026-11-25.
 - **Nothing moves on its own.** Motion only responds to the visitor (hover, focus, tap). No autoplay, no bouncing cues.
 - **Motion is slow and gentle.** Small rotation, \~300-500 ms ease, no overshoot, no scaling or parallax. Disabled under `prefers-reduced-motion`.
 - **As little JS as possible.** HTML and CSS first. JS only where it clearly earns its place (tooltip pinning, interactive demos), loaded only on pages that need it. Every page must still work without it.
-- **Dark by default**, light follows the system setting. No theme toggle (it would need JS).
+- **Dark by default**, light follows the system setting. A header toggle overrides it and the choice is remembered (see Theme toggle).
 - **Content leads.** Perfection is not required, since it's a personal site.
 
 ## Stack and hosting
@@ -46,7 +46,7 @@ Personal site for Sanjay: blog, projects, research. Last updated: 2026-11-25.
 
 ## Design tokens (`sass/_tokens.scss`)
 
-All colors are CSS variables. Dark is the base, light is overridden under `prefers-color-scheme: light`.
+All colors are CSS variables. Dark is the base; light comes from `[data-theme="light"]` (set by JS) or, without JS, from `prefers-color-scheme: light`.
 
 | Token       | Dark      | Light                           |
 | ----------- | --------- | ------------------------------- |
@@ -92,6 +92,12 @@ Fonts are self-hosted from Fontsource files in `static/fonts/` and declared in `
 - `.entry-list`: list of posts or projects (title left, date right).
 - `.no-ligatures`: disables Fira Code ligatures for one code block.
 - `:focus-visible` gets a mint outline. Keep it.
+
+## Theme toggle
+
+- Working. `base.html` sets `data-theme` before the stylesheet (no flash); `static/js/theme.js` handles the header button.
+- Resolution: `localStorage.theme` → `prefers-color-scheme` → dark. The choice is saved in `localStorage` under `theme`.
+- Without JS the button is hidden (`html.js`) and the system setting wins.
 
 ## Decided for later stages
 

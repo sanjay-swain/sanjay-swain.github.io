@@ -1,4 +1,19 @@
-// Dark is the default. Light applies only when the system asks for it.
+// Dark is the default. Light applies when the visitor chooses it (data-theme,
+// set by JS) or, without JS, when the system asks for it.
+@mixin light-tokens {
+    color-scheme: light;
+
+    --bg: #f6f8f7;
+    --surface: #edf1f0;
+    --border: #d3dad8;
+    --text: #1a2025;
+    --muted: #5b6770;
+
+    --mint: #1d7a5a;
+    --blue: #1c6e94;
+    --coral: #c4452a;
+}
+
 :root {
     color-scheme: dark;
 
@@ -23,18 +38,14 @@
     --gutter: 1.25rem;
 }
 
+// Explicit choice written by theme.js.
+:root[data-theme="light"] {
+    @include light-tokens;
+}
+
+// No-JS fallback: follow the system when no explicit theme was set.
 @media (prefers-color-scheme: light) {
-    :root {
-        color-scheme: light;
-
-        --bg: #f6f8f7;
-        --surface: #edf1f0;
-        --border: #d3dad8;
-        --text: #1a2025;
-        --muted: #5b6770;
-
-        --mint: #1d7a5a;
-        --blue: #1c6e94;
-        --coral: #c4452a;
+    :root:not([data-theme]) {
+        @include light-tokens;
     }
 }
