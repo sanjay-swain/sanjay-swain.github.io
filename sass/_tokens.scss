@@ -1,0 +1,40 @@
+// Dark is the default. Light applies only when the system asks for it.
+:root {
+    color-scheme: dark;
+
+    --bg: #0f1418;
+    --surface: #161d23;
+    --border: #26313a;
+    --text: #e8ecef;
+    --muted: #97a3ad;
+
+    --mint: #8fe3c0;
+    --blue: #7cc4e8;
+    --coral: #ff8f70;
+
+    // Role: links and highlights. Change this one line to re-theme the site.
+    --accent: var(--mint);
+
+    --font-body: "Source Serif 4", Georgia, serif;
+    --font-heading: "Archivo", system-ui, sans-serif;
+    --font-mono: "Fira Code", ui-monospace, monospace;
+
+    --page-width: 60rem;
+    --gutter: 1.25rem;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        color-scheme: light;
+
+        --bg: #f6f8f7;
+        --surface: #edf1f0;
+        --border: #d3dad8;
+        --text: #1a2025;
+        --muted: #5b6770;
+
+        --mint: #1d7a5a;
+        --blue: #1c6e94;
+        --coral: #c4452a;
+    }
+}

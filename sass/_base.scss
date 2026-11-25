@@ -1,0 +1,58 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+}
+
+a {
+    color: var(--accent);
+    text-underline-offset: 0.2em;
+}
+
+a:hover {
+    color: var(--blue);
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+time {
+    color: var(--muted);
+}
+
+code,
+pre,
+kbd,
+samp {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    font-style: normal;
+    letter-spacing: 0;
+    font-variant-ligatures: normal;
+}
+
+// Add class="no-ligatures" to any block where you want plain characters.
+.no-ligatures {
+    font-variant-ligatures: none;
+}

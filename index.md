@@ -1,2 +1,0 @@
-## About Me
-Hi! I am Sanjay, currently doing Masters in Aerospace Engineering. My interests lies on the edge of Controls and Dynamics. I am interested in satellite controls such as non-cooperative rendezvous problems.

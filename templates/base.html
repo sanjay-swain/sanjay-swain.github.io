@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="{{ lang }}">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="color-scheme" content="dark light" />
+
+        <title>
+            {%- if page and page.title %}{{ page.title }} · {{ config.title }}
+            {%- elif section and section.title and section.path != "/" %}{{
+            section.title }} · {{ config.title }} {%- else %}{{ config.title
+            }}{% endif -%}
+        </title>
+
+        {% if page and page.description %}
+        <meta name="description" content="{{ page.description }}" />
+        {% elif config.description %}
+        <meta name="description" content="{{ config.description }}" />
+        {% endif %}
+
+        <link rel="stylesheet" href="{{ get_url(path='main.css') }}" />
+        {% block head %}{% endblock head %}
+    </head>
+    <body>
+        <a class="skip-link" href="#main">Skip to content</a>
+
+        <header class="site-header">
+            <a class="site-name" href="{{ get_url(path='@/_index.md') }}"
+                >{{ config.title }}</a
+            >
+            <nav aria-label="Main">
+                <ul>
+                    {% for item in config.extra.nav %}
+                    <li>
+                        <a href="{{ get_url(path=item.path) }}"
+                            >{{ item.name }}</a
+                        >
+                    </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </header>
+
+        <main id="main">{% block content %}{% endblock content %}</main>
+
+        <footer class="site-footer">
+            <p>© {{ now() | date(format="%Y") }} {{ config.extra.author }}</p>
+            <ul>
+                {% for link in config.extra.footer_links %}
+                <li><a href="{{ link.url }}" rel="me">{{ link.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </footer>
+    </body>
+</html>

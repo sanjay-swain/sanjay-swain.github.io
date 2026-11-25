@@ -1,0 +1,81 @@
+.site-header,
+main,
+.site-footer {
+    width: 100%;
+    max-width: var(--page-width);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+}
+
+main {
+    flex: 1;
+}
+
+.site-header,
+.site-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+    padding-block: 1.25rem;
+    font-family: var(--font-heading);
+}
+
+.site-header ul,
+.site-footer ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.site-name {
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text);
+}
+
+.site-header nav a {
+    color: var(--muted);
+    text-decoration: none;
+}
+
+.site-header nav a:hover {
+    color: var(--accent);
+}
+
+.site-footer {
+    margin-top: 4rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+.entry-list {
+    padding: 0;
+    list-style: none;
+}
+
+.entry-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 0.4rem;
+}
+
+.skip-link {
+    position: absolute;
+    left: -999px;
+}
+
+.skip-link:focus {
+    left: var(--gutter);
+    top: 0.5rem;
+}

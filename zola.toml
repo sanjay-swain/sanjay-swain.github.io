@@ -1,0 +1,40 @@
+# The URL the site will be built for
+base_url = "https://sanjay-swain.github.io/"
+
+title = "Sanjay"
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = false
+
+[markdown]
+
+[markdown.highlighting]
+theme = "github-dark"
+
+[extra]
+author = "Sanjay"
+
+# Main navigation. To add Publications later, add one more block.
+# `path` must point to a real file under content/ (Zola errors loudly if not).
+[[extra.nav]]
+name = "About"
+path = "@/about.md"
+
+[[extra.nav]]
+name = "Projects"
+path = "@/projects/_index.md"
+
+[[extra.nav]]
+name = "Blog"
+path = "@/blog/_index.md"
+
+# Footer links (contact lives here, not in the nav).
+[[extra.footer_links]]
+name = "Email"
+url = "mailto:sanjayswain450@gmail.com"
+
+[[extra.footer_links]]
+name = "GitHub"
+url = "https://github.com/sanjay-swain"
